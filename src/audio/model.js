@@ -35,11 +35,11 @@ class Audio {
     var osc = ctx.createOscillator();
 
     osc.type = 'sine';
-    osc.frequency.value = 260;
+    osc.frequency.value = 440;
 
     // gain
     var gainNode = ctx.createGain();
-    gainNode.gain.value = 0.55;
+    gainNode.gain.value = 0.65;
 
     osc.connect(gainNode);
     gainNode.connect(ctx.destination);
