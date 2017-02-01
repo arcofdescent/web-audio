@@ -16,6 +16,10 @@ class Audio {
     else {
      console.log('no Web Audio API');
     }
+
+		this.oscillatorTypes = [
+			'sine', 'square', 'sawtooth', 'triangle', 'custom',
+		];
 	}
 
 
@@ -29,19 +33,16 @@ class Audio {
 
     // oscillator
     var osc = ctx.createOscillator();
-    osc.type = 'triangle';
+
+    osc.type = 'sine';
     osc.frequency.value = 260;
 
     // gain
     var gainNode = ctx.createGain();
-    gainNode.gain.value = 0.85;
-
-    // dynamics compression
-    var dc = ctx.createDynamicsCompressor();
+    gainNode.gain.value = 0.55;
 
     osc.connect(gainNode);
-    gainNode.connect(dc);
-    dc.connect(ctx.destination);
+    gainNode.connect(ctx.destination);
 
     osc.start(time);
     osc.stop(time + duration);

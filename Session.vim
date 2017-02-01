@@ -510,12 +510,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 10 - ((9 * winheight(0) + 25) / 51)
+let s:l = 26 - ((25 * winheight(0) + 25) / 51)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-10
-normal! 049|
+26
+normal! 019|
 wincmd w
 argglobal
 edit /srv/sites/web-audio/src/App.css
@@ -919,13 +919,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-73,182fold
-let s:l = 28 - ((27 * winheight(0) + 24) / 49)
+74,183fold
+let s:l = 23 - ((22 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-28
-normal! 020|
+23
+normal! 03|
 wincmd w
 argglobal
 edit /srv/sites/web-audio/src/index.js
