@@ -17,19 +17,18 @@ class Audio {
      console.log('no Web Audio API');
     }
 
+		this.gainNode = null;
+
+		this.oscillator = null;
 		this.oscillatorTypes = [
 			'sine', 'square', 'sawtooth', 'triangle', 'custom',
 		];
 	}
 
-
   play_note() {
 
-    // duration is in seconds
-  
     var ctx = this.ctx;
     var time = this.ctx.currentTime + 0.1;
-		var duration = 1;
 
     // oscillator
     var osc = ctx.createOscillator();
@@ -39,14 +38,23 @@ class Audio {
 
     // gain
     var gainNode = ctx.createGain();
-    gainNode.gain.value = 0.65;
+    gainNode.gain.value = 1;
 
     osc.connect(gainNode);
     gainNode.connect(ctx.destination);
+		this.gainNode = gainNode;
 
     osc.start(time);
-    osc.stop(time + duration);
+		this.oscillator = osc;
   }
+
+	stop() {
+    this.oscillator.stop();
+	}
+
+	setGain(val) {
+		this.gainNode.gain.value = val;	
+	}
 
 	/*
   defaults: {

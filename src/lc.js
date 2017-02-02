@@ -13,5 +13,5 @@ class LC {
 
 }
 
-export default (new LC);
+export default (new LC());
 
